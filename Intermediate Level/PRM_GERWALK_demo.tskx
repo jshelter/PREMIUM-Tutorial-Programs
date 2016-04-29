@@ -1,0 +1,191 @@
+﻿version 4.00
+cm_version 1.0
+platform CM-530
+o // param_text:Bioloid Premium Kit Gerwalk Task code
+o // param_text:Initial Release : July 1, 2010.
+o // param_text:How the program works
+o // param_text:The robot moves, if there's an object then it avoids it.
+o // param_text:Modified for HIDALGO demo 3-2-2016  IR SENSORs are unbalanced
+o main
+o begin
+o call faddr_dest:Ready
+- 
+o wait param_src:cm:19 lop:!= param_src:dec_num:2 rop:then
+- 
+o while(1)
+o begin
+o if param_src:aux:1:64 lop:>= param_src:dec_num:400 rop:then
+o begin
+o call faddr_dest:Reverse
+o end
+o elseif param_src:aux:3:63 lop:>= param_src:dec_num:100 rop:then
+o begin
+o while param_src:aux:3:63 lop:>= param_src:dec_num:70 rop:then
+o call faddr_dest:GoRight
+o end
+o elseif param_src:aux:4:63 lop:>= param_src:dec_num:80 rop:then
+o begin
+o while param_src:aux:4:63 lop:>= param_src:dec_num:50 rop:then
+o call faddr_dest:GoLeft
+o end
+o else
+o call faddr_dest:Forward
+o end
+o end
+- 
+o function faddr_src:Ready
+o begin
+o if param_src:motion:1:50 lop:== param_src:dec_num:2 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:7
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:3 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:6
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:4 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:7
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:5 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:6
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:8 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:13
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:9 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:12
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:10 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:13
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:11 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:12
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:14 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:8
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:15 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:7
+o else
+o load param_dest:motion:1:50 param_src:dec_num:1
+o call faddr_dest:WaitMotion
+o end
+- 
+o function faddr_src:Forward
+o begin
+o if param_src:motion:1:50 lop:== param_src:dec_num:2 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:5
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:3 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:4
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:4 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:5
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:5 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:4
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:8 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:4
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:9 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:5
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:10 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:4
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:11 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:5
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:14 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:4
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:15 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:5
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:18 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:5
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:19 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:4
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:20 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:5
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:21 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:4
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:22 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:4
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:24 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:4
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:25 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:4
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:26 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:4
+o else
+o load param_dest:motion:1:50 param_src:dec_num:2
+o call faddr_dest:WaitMotion
+o end
+- 
+o function faddr_src:Reverse
+o begin
+o if param_src:motion:1:50 lop:== param_src:dec_num:2 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:27
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:3 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:24
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:4 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:27
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:5 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:24
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:8 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:11
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:9 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:10
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:10 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:11
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:11 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:10
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:14 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:11
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:15 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:10
+o else
+o load param_dest:motion:1:50 param_src:dec_num:8
+o call faddr_dest:WaitMotion
+o end
+- 
+o function faddr_src:GoRight
+o begin
+o if param_src:motion:1:50 lop:== param_src:dec_num:2 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:4
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:4 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:4
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:5 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:18
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:6 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:20
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:7 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:20
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:12 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:20
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:13 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:20
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:20 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:4
+o else
+o call faddr_dest:Forward
+o call faddr_dest:WaitMotion
+o end
+- 
+o function faddr_src:GoLeft
+o begin
+o if param_src:motion:1:50 lop:== param_src:dec_num:3 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:5
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:5 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:5
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:4 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:19
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:19 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:5
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:6 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:21
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:7 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:21
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:12 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:21
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:13 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:21
+o elseif param_src:motion:1:50 lop:== param_src:dec_num:21 rop:then
+o load param_dest:motion:1:50 param_src:dec_num:5
+o else
+o call faddr_dest:Forward
+o call faddr_dest:WaitMotion
+o end
+- 
+o function faddr_src:WaitMotion
+o begin
+o wait param_src:motion:1:51 lop:== param_src:bool_num:1 rop:then
+o end
+- 
+o function faddr_src:Delay
+o begin
+o load param_dest:cm:5 param_src:dec_num:1
+o wait param_src:cm:5 lop:> param_src:timer_num:0 rop:then
+o end
+- 
